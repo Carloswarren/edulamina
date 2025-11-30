@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Láminas Escolares - Estilo Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --duo-green: #58CC02;
+            --duo-green-shadow: #46A302;
+            --duo-blue: #1CB0F6;
+            --duo-blue-shadow: #1899D6;
+            --duo-yellow: #FFC800;
+            --duo-gray: #E5E5E5;
+            --text-color: #4B4B4B;
+            --bg-color: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-bottom: 2px solid var(--duo-gray);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--duo-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Botones Estilo Duolingo --- */
+        .btn {
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.1s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--duo-green);
+            color: white;
+            box-shadow: 0 4px 0 var(--duo-green-shadow);
+        }
+
+        .btn-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 var(--duo-green-shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--duo-blue);
+            color: white;
+            box-shadow: 0 4px 0 var(--duo-blue-shadow);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 var(--duo-blue-shadow);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #777;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Grid de Productos --- */
+        .products-section {
+            padding: 2rem;
+            background-color: #F7F7F7;
+        }
+
+        .section-title {
+            text-align: center;
+            font-weight: 900;
+            color: var(--duo-gray);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid var(--duo-gray);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--duo-blue);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+            border: 2px solid var(--duo-gray);
+        }
+
+        .card-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-price {
+            font-weight: 900;
+            color: var(--duo-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+        }
+
+        /* --- Contacto / Formulario --- */
+        .contact-section {
+            padding: 4rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--duo-gray);
+            border-radius: 16px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+            background-color: #F7F7F7;
+            transition: border 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--duo-blue);
+            background-color: white;
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid var(--duo-gray);
+            color: #999;
+            font-weight: 700;
+        }
+
+        /* Animación suave */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            font-size: 3rem;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 1rem;
+            display: block;
+        }
+/* --- Estilos del Panel Admin --- */
+#admin-btn {
+    position: fixed; bottom: 10px; right: 10px; opacity: 0.1;
+    font-size: 20px; cursor: pointer; z-index: 999;
+}
+#admin-btn:hover { opacity: 1; }
+
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); z-index: 2000;
+    display: none; justify-content: center; align-items: center;
+}
+
+.admin-panel {
+    background: white; width: 90%; max-width: 600px; max-height: 90vh;
+    overflow-y: auto; padding: 2rem; border-radius: 15px;
+    border: 4px solid var(--duo-blue);
+}
+
+.admin-row {
+    border-bottom: 1px solid #ccc; padding: 10px 0;
+    display: flex; gap: 10px; align-items: center;
+}
+.admin-input { padding: 5px; border: 1px solid #999; width: 100%; }
+/* --- Estilos de la Sección de Status --- */
+.status-section {
+    background: #fff;
+    border: 2px solid var(--duo-gray);
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    display: none; /* Oculto por defecto */
+    animation: slideUp 0.5s ease-out;
+}
+
+.status-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 2px dashed var(--duo-gray);
+}
+
+.status-pill {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+
+/* Colores de estado Duolingo */
+.st-pendiente { background-color: var(--duo-gray); color: #777; }
+.st-recibido { background-color: var(--duo-yellow); }
+.st-proceso { background-color: var(--duo-blue); }
+.st-listo { background-color: var(--duo-green); }
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+/* --- Modal de Éxito Estilo Duolingo --- */
+.modal-content-duo {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 3px solid var(--duo-gray);
+    text-align: center;
+    position: relative;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.modal-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: float 2s infinite ease-in-out;
+}
+
+.modal-title {
+    color: var(--duo-green);
+    font-weight: 900;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-text {
+    color: #777;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Animación de entrada */
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">EduLáminas</div>
+        <a href="#contacto" class="btn btn-secondary">Contactar</a>
+    </header>
+
+    <section class="hero">
+        <span class="floating-icon">🎨</span>
+        <h1>¡Tus tareas escolares nunca se vieron tan bien!</h1>
+        <p>Láminas creativas, coloridas y listas para sacar 20 puntos.</p>
+        <a href="#catalogo" class="btn btn-primary" style="font-size: 1.2rem; padding: 16px 32px;">Ver Catálogo</a>
+    </section>
+<section id="mis-pedidos-container" class="status-section">
+    <h2 class="section-title" style="color:var(--duo-green); margin-bottom:1rem;">📦 Estado de tus Pedidos</h2>
+    <div id="lista-pedidos-usuario">
+        </div>
+    <p style="text-align:center; margin-top:15px; font-size:0.9rem; color:#999;">
+        Guarda esta página para ver cambios en tu pedido.
+    </p>
+</section>
+    <section id="catalogo" class="products-section">
+        <h2 class="section-title">Elige tu lámina</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <img src="https://via.placeholder.com/300x250/FFC800/FFFFFF?text=San+Juan+Bautista" alt="Lámina San Juan" class="card-img" id="img-sanjuan">
+                <h3 class="card-title">Fiesta de San Juan</h3>
+                <p style="text-align:center; color:#777; margin-bottom:10px;">Tradiciones, tambores y cultura.</p>
+                <div class="card-price">$5.00</div>
+                <button class="btn btn-primary" onclick="seleccionarProducto('Lámina San Juan Bautista')">¡LA QUIERO!</button>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x250/1CB0F6/FFFFFF?text=Simbolos+Patrios" alt="Lámina Simbolos" class="card-img">
+                <h3 class="card-title">Símbolos Patrios</h3>
+                <p style="text-align:center; color:#777; margin-bottom:10px;">Bandera, Escudo e Himno.</p>
+                <div class="card-price">$5.00</div>
+                <button class="btn btn-primary" onclick="seleccionarProducto('Lámina Símbolos Patrios')">¡LA QUIERO!</button>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x250/58CC02/FFFFFF?text=Tu+Tema+Aqui" alt="Pedido Personalizado" class="card-img">
+                <h3 class="card-title">Pedido Personalizado</h3>
+                <p style="text-align:center; color:#777; margin-bottom:10px;">Cualquier tema que necesites.</p>
+                <div class="card-price">$7.00</div>
+                <button class="btn btn-secondary" onclick="seleccionarProducto('Lámina Personalizada')">PEDIR AHORA</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+        <h2 class="section-title" style="color: var(--duo-blue);">Completa tu pedido</h2>
+        <form id="orderForm" onsubmit="enviarPedido(event)">
+            <div class="form-group">
+                <label class="form-label">Tu Nombre</label>
+                <input type="text" id="nombre" class="form-input" placeholder="Ej. Juan Perez" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">¿Qué lámina deseas?</label>
+                <input type="text" id="producto" class="form-input" placeholder="Selecciona arriba..." readonly style="background-color: #eee; cursor: not-allowed;">
+            </div>
+<div class="form-group">
+    <label class="form-label">¿Para cuándo lo necesitas?</label>
+    <select id="fecha-entrega" class="form-input" style="cursor: pointer;">
+        <option value="A convenir">Días próximos a convenir</option>
+        <option value="Mañana (EXPRESS +$2)">Mañana (Servicio EXPRESS +$2.00)</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label class="form-label">Tipo de Acabado</label>
+    <select id="acabado" class="form-input" style="cursor: pointer;">
+        <option value="Coloreado completo">Todo coloreado y acabado completo</option>
+        <option value="Solo trazo">Solo el trazo con marcador negro, (MITAD DEL COSTO EL PUBLICACION)</option>
+    </select>
+</div>
+            <div class="form-group">
+                <label class="form-label">Detalles extra (Grado, Sección, Texto)</label>
+                <textarea id="mensaje" class="form-input" placeholder="Ej. Es para 5to grado, quiero que incluya..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">ENVIAR PEDIDO POR WHATSAPP</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 EduLáminas Venezuela</p>
+    </footer>
+<button id="admin-btn" onclick="abrirAdmin()">⚙️</button>
+
+<div id="modal-admin" class="modal-overlay">
+    <div class="admin-panel">
+        <h2>Panel de Control</h2>
+        
+        <div id="login-screen">
+            <input type="password" id="admin-pass" placeholder="Ingresa la clave..." class="form-input">
+            <button onclick="verificarClave()" class="btn btn-primary" style="margin-top:10px">Entrar</button>
+        </div>
+
+        <div id="editor-screen" style="display:none;">
+            <h3>Configuración General</h3>
+            <label>Número WhatsApp (sin +):</label>
+            <input type="text" id="edit-telefono" class="admin-input">
+            
+            <h3 style="margin-top:20px;">Editar Productos</h3>
+            <div id="lista-productos-admin"></div>
+            
+            <button onclick="agregarProductoVacio()" class="btn btn-secondary" style="margin-top:10px;">+ Nuevo Producto</button>
+            <hr>
+            <button onclick="guardarTodo()" class="btn btn-primary" style="width:100%">GUARDAR CAMBIOS</button>
+            <button onclick="cerrarAdmin()" class="btn" style="margin-top:10px; background:#ccc">Cerrar</button>
+        </div>
+    </div>
+</div>
+<div id="modal-exito" class="modal-overlay">
+    <div class="modal-content-duo">
+        <span class="modal-icon">🎉</span>
+        <h2 class="modal-title">¡Casi listo!</h2>
+        
+        <p class="modal-text">
+            Hemos guardado tu pedido. <br>
+            <strong>¡Ahora verás el estado "Recibido" arriba!</strong>
+        </p>
+
+        <p style="font-size: 0.9rem; color: #999; margin-bottom: 20px;">
+            Para confirmar, envíanos el mensaje que se generará a continuación.
+        </p>
+
+        <button id="btn-confirmar-wa" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;">
+            CONTINUAR A WHATSAPP
+        </button>
+        
+        <button onclick="cerrarModalExito()" style="margin-top: 15px; background: none; border: none; color: #999; font-weight: bold; cursor: pointer;">
+            Volver
+        </button>
+    </div>
+</div>
+<script>
+    // 1. CONFIGURACIÓN INICIAL
+    const datosPorDefecto = {
+        telefono: "584120000000",
+        productos: [
+            { id: 1, tipo: 'lamina', titulo: 'San Juan', precio: 5, img: 'https://via.placeholder.com/300x250/FFC800/FFFFFF?text=San+Juan' },
+            { id: 2, tipo: 'lamina', titulo: 'Símbolos Patrios', precio: 5, img: 'https://via.placeholder.com/300x250/1CB0F6/FFFFFF?text=Simbolos' }
+        ],
+        ordenes: [] 
+    };
+
+    // Cargar datos
+    let datos = JSON.parse(localStorage.getItem('eduLaminasDB')) || datosPorDefecto;
+
+    // 2. RENDERIZAR WEB
+    function renderizarWeb() {
+        const grid = document.querySelector('.grid');
+        grid.innerHTML = ''; 
+
+        datos.productos.forEach(prod => {
+            const html = `
+                <div class="card">
+                    <img src="${prod.img}" class="card-img">
+                    <h3 class="card-title">${prod.titulo}</h3>
+                    <p style="text-align:center; color:#777; margin-bottom:10px;">${prod.tipo.toUpperCase()}</p>
+                    <div class="card-price">$${prod.precio}</div>
+                    <button class="btn btn-primary" onclick="seleccionarProducto('${prod.titulo}')">¡LA QUIERO!</button>
+                </div>
+            `;
+            grid.innerHTML += html;
+        });
+    }
+
+    // 3. FUNCIONES DE PEDIDO
+    function seleccionarProducto(nombre) {
+        document.getElementById('producto').value = nombre;
+        document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
+    }
+
+function enviarPedido(e) {
+    e.preventDefault();
+    
+    const nombre = document.getElementById('nombre').value;
+    const producto = document.getElementById('producto').value;
+    const mensaje = document.getElementById('mensaje').value;
+    const fecha = document.getElementById('fecha-entrega').value;
+    const acabado = document.getElementById('acabado').value;
+
+    if(!producto) {
+        alert("Por favor, elige una lámina primero.");
+        return;
+    }
+
+    // 1. GUARDAR DATOS (Igual que antes)
+    const nuevaOrden = {
+        id: Date.now(),
+        cliente: nombre,
+        desc: producto,
+        status: 'recibido',
+        fechaPedido: new Date().toLocaleDateString()
+    };
+
+    if(!datos.ordenes) datos.ordenes = [];
+    datos.ordenes.push(nuevaOrden);
+    localStorage.setItem('eduLaminasDB', JSON.stringify(datos));
+
+    // 2. ACTUALIZAR VISUALMENTE
+    renderizarStatusUsuario();
+    
+    // 3. MOSTRAR EL MODAL BONITO (En lugar del alert)
+    const modal = document.getElementById('modal-exito');
+    modal.style.display = 'flex'; // Hacemos visible el modal
+
+    // 4. PREPARAR EL BOTÓN DE WHATSAPP
+    const btnWhatsapp = document.getElementById('btn-confirmar-wa');
+    const texto = `Hola, soy *${nombre}*.%0AQuiero: *${producto}*%0A📅 Entrega: ${fecha}%0A🎨 Acabado: ${acabado}%0A📝 Nota: ${mensaje}`;
+    const url = `https://wa.me/${datos.telefono}?text=${texto}`;
+
+    // Al hacer click en el botón del modal, abrimos WA y cerramos el modal
+    btnWhatsapp.onclick = function() {
+        window.open(url, '_blank');
+        cerrarModalExito();
+        document.getElementById('orderForm').reset(); // Limpiar formulario
+    };
+}
+
+// Función para cerrar el modal si se arrepienten
+function cerrarModalExito() {
+    document.getElementById('modal-exito').style.display = 'none';
+}
+
+    // 4. STATUS DEL USUARIO
+    function renderizarStatusUsuario() {
+        const contenedor = document.getElementById('mis-pedidos-container');
+        const lista = document.getElementById('lista-pedidos-usuario');
+        
+        if(!datos.ordenes || datos.ordenes.length === 0) {
+            contenedor.style.display = 'none';
+            return;
+        }
+
+        contenedor.style.display = 'block';
+        lista.innerHTML = '';
+
+        datos.ordenes.slice().reverse().forEach(orden => {
+            let claseColor = 'st-pendiente';
+            let textoStatus = 'Pendiente';
+
+            if(orden.status === 'recibido') { claseColor = 'st-recibido'; textoStatus = 'Recibido'; }
+            if(orden.status === 'proceso') { claseColor = 'st-proceso'; textoStatus = 'En Proceso'; }
+            if(orden.status === 'listo') { claseColor = 'st-listo'; textoStatus = '¡Listo!'; }
+
+            lista.innerHTML += `
+                <div class="status-card">
+                    <div>
+                        <strong>${orden.desc}</strong><br>
+                        <small style="color:#999">Cliente: ${orden.cliente}</small>
+                    </div>
+                    <div class="status-pill ${claseColor}">
+                        ${textoStatus}
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    // 5. PANEL ADMIN
+    function abrirAdmin() { document.getElementById('modal-admin').style.display = 'flex'; }
+    function cerrarAdmin() { document.getElementById('modal-admin').style.display = 'none'; }
+
+    function verificarClave() {
+        const pass = document.getElementById('admin-pass').value;
+        if(pass === "1234") { 
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('editor-screen').style.display = 'block';
+            cargarEditor();
+        } else {
+            alert("Clave incorrecta");
+        }
+    }
+
+    function cargarEditor() {
+        document.getElementById('edit-telefono').value = datos.telefono;
+        const lista = document.getElementById('lista-productos-admin');
+        lista.innerHTML = '';
+
+        // A. Editar Productos
+        datos.productos.forEach((prod, index) => {
+            lista.innerHTML += `
+                <div class="admin-row">
+                    <select onchange="actualizarDato(${index}, 'tipo', this.value)" class="admin-input" style="width:80px">
+                        <option value="lamina" ${prod.tipo === 'lamina' ? 'selected' : ''}>Lámina</option>
+                        <option value="maqueta" ${prod.tipo === 'maqueta' ? 'selected' : ''}>Maqueta</option>
+                    </select>
+                    <input type="text" value="${prod.titulo}" class="admin-input" onchange="actualizarDato(${index}, 'titulo', this.value)">
+                    <input type="number" value="${prod.precio}" style="width:60px" class="admin-input" onchange="actualizarDato(${index}, 'precio', this.value)">
+                    <button onclick="borrarProducto(${index})" style="background:red; color:white; border:none; padding:5px;">X</button>
+                </div>
+                <input type="text" value="${prod.img}" class="admin-input" style="margin-bottom:10px; font-size:12px; color:#666;" onchange="actualizarDato(${index}, 'img', this.value)">
+                <hr style="margin:5px 0; border:0; border-top:1px dashed #ccc;">
+            `;
+        });
+
+        // B. Gestionar Pedidos (AQUÍ ES DONDE IBA EL CÓDIGO NUEVO)
+        lista.innerHTML += `<h3 style="margin-top:30px; border-top:2px solid #eee; padding-top:10px;">📦 Gestión de Pedidos</h3>`;
+        
+        if(!datos.ordenes) datos.ordenes = [];
+        
+        datos.ordenes.forEach((orden, idx) => {
+            lista.innerHTML += `
+                <div class="admin-row" style="background:#f9f9f9; padding:10px; border-radius:10px; margin-bottom:5px;">
+                    <div style="flex:1">
+                        <strong>${orden.cliente}</strong>: ${orden.desc}
+                    </div>
+                    <select onchange="cambiarStatus(${idx}, this.value)" class="admin-input" style="width:120px; font-weight:bold;">
+                        <option value="recibido" ${orden.status === 'recibido'?'selected':''}>🟡 Recibido</option>
+                        <option value="proceso" ${orden.status === 'proceso'?'selected':''}>🔵 En Proceso</option>
+                        <option value="listo" ${orden.status === 'listo'?'selected':''}>🟢 Listo</option>
+                    </select>
+                    <button onclick="borrarOrden(${idx})" style="background:red; color:white; border:none; border-radius:5px; padding:5px;">X</button>
+                </div>
+            `;
+        });
+    }
+
+    function actualizarDato(index, campo, valor) {
+        datos.productos[index][campo] = valor;
+    }
+
+    function agregarProductoVacio() {
+        datos.productos.push({ tipo: 'lamina', titulo: 'Nuevo', precio: 0, img: 'https://via.placeholder.com/300' });
+        cargarEditor();
+    }
+
+    function borrarProducto(index) {
+        if(confirm('¿Borrar este producto?')) {
+            datos.productos.splice(index, 1);
+            cargarEditor();
+        }
+    }
+
+    function guardarTodo() {
+        datos.telefono = document.getElementById('edit-telefono').value;
+        localStorage.setItem('eduLaminasDB', JSON.stringify(datos));
+        renderizarWeb();
+        alert("Cambios guardados");
+        cerrarAdmin();
+    }
+
+    // Funciones Admin Pedidos
+    function cambiarStatus(index, nuevoStatus) {
+        datos.ordenes[index].status = nuevoStatus;
+        localStorage.setItem('eduLaminasDB', JSON.stringify(datos));
+        renderizarStatusUsuario();
+    }
+
+    function borrarOrden(index) {
+        if(confirm('¿Borrar este pedido del historial?')) {
+            datos.ordenes.splice(index, 1);
+            localStorage.setItem('eduLaminasDB', JSON.stringify(datos));
+            cargarEditor();
+            renderizarStatusUsuario();
+        }
+    }
+
+    // Inicializar
+    renderizarWeb();
+    renderizarStatusUsuario();
+</script>
+    </script>
+</body>
+</html>
